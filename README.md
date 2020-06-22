@@ -18,29 +18,11 @@ Open your Firebase project at the Google console and click 'Add app' to add an i
 tns plugin add @martinbuezas/nativescript-social-login
 ```
 
-## Configuration
+## Android Configuration
 
-<!-- ---------------------------------------------------------------------------
-CONFIG ANDROID 
----------------------------------------------------------------------------- -->
+### `Strings.xml`
 
-<details>
- <summary>Android</summary>
-
-### Permissions - `App_Resources/Android/src/main/AndroidManifest.xml`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- ... -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- ... -->
-</manifest>
-```
-
-### Facebook App ID - `App_Resources/Android/src/main/res/values/strings.xml`
+Add your Facebook App ID to `App_Resources/Android/src/main/res/values/strings.xml` - If the file doesn't exist, create it and don't forget to add you app's name and kimera title.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,46 +34,50 @@ CONFIG ANDROID
 </resources>
 ```
 
-### Facebook Activity - `App_Resources/Android/src/main/AndroidManifest.xml`
+### `AndroidManifest.xml`
 
-Add the `xmlns:tools="http://schemas.android.com/tools"` namespace to your `<manifest>` tag.
+1. Add the `xmlns:tools="http://schemas.android.com/tools"` namespace to your `<manifest>` tag.
+1. Check the required permissions
+1. Add the Facebook configuration in the `<application>` section of the manifest
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools">
-```
+  xmlns:tools="http://schemas.android.com/tools"
+  >
 
-Add the Facebook configuration in the `<application>` section of the manifest as shown bellow:
+    <!-- 2. Permission -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-```xml
-<!-- ... -->
-<application>
-    <!-- ... -->
-    <meta-data
-      android:name="com.facebook.sdk.ApplicationId"
-      android:value="@string/facebook_app_id"
-    />
-    <activity
-      android:name="com.facebook.FacebookActivity"
-      android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-      tools:replace="android:theme"
-      android:theme="@android:style/Theme.Translucent.NoTitleBar"
-      android:label="@string/app_name"
-    />
-    <activity
-      android:name="com.facebook.CustomTabActivity"
-      android:exported="true"
-    >
-      <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="@string/fb_login_protocol_scheme" />
-      </intent-filter>
-    </activity>
-</application>
+    <application>
+      <!-- 3. Facebook config -->
+      <meta-data
+        android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/facebook_app_id"
+      />
+      <activity
+        android:name="com.facebook.FacebookActivity"
+        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        tools:replace="android:theme"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        android:label="@string/app_name"
+      />
+      <activity
+        android:name="com.facebook.CustomTabActivity"
+        android:exported="true"
+      >
+        <intent-filter>
+          <action android:name="android.intent.action.VIEW" />
+          <category android:name="android.intent.category.DEFAULT" />
+          <category android:name="android.intent.category.BROWSABLE" />
+          <data android:scheme="@string/fb_login_protocol_scheme" />
+        </intent-filter>
+      </activity>
+  </application>
+</manifest>
 ```
 
 ### Setup Android Google Sign in for Debug Builds
@@ -110,18 +96,8 @@ The path will change according to the path on your machine. The android debug bu
     - Enable Google Sign-In
         - If only enabling Google Sign-In you do not need the configuration file inside your application.
 3. Run the app and `loginWithGoogle()` should return the data associated with the google account that was selected.
-</details>
 
-<!-- ---------------------------------------------------------------------------
-CONFIG ANDROID END
----------------------------------------------------------------------------- -->
-
-<!-- ---------------------------------------------------------------------------
-CONFIG IOS
----------------------------------------------------------------------------- -->
-
-<details>
-  <summary>iOS</summary>
+## iOS Configuration
 
 ### GoogleService-Info.plist
 

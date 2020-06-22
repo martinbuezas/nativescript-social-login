@@ -1,6 +1,6 @@
 {
 	"name": "@martinbuezas/nativescript-social-login",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Authenticate users using Facebook and Google sign in",
 	"main": "social-login",
 	"typings": "index.d.ts",

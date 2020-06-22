@@ -99,14 +99,9 @@ The path will change according to the path on your machine. The android debug bu
 
 ## iOS Configuration
 
-### GoogleService-Info.plist
+### `Info.plist`
 
-You should generate a `GoogleService-Info.plist` file for your application and add it to `/app/App_Resources/iOS` folder.
-You can get this file and find more info here - https://developers.google.com/identity/sign-in/ios/start-integrating
-
-### Info.plist
-
-Add the following to your Info.plist file located in `app/App_Resources/iOS`
+Add your Facebook App ID and your Reversed Client ID to `app/App_Resources/iOS/Info.plist`
 
 ```xml
 <dict>
@@ -140,12 +135,6 @@ Add the following to your Info.plist file located in `app/App_Resources/iOS`
   <!-- FACEBOOK AND GOOGLE LOGIN end -->
 </dict>
 ```
-https://developers.facebook.com/docs/ios
-</details>
-
-<!-- ---------------------------------------------------------------------------
-CONFIG IOS END
----------------------------------------------------------------------------- -->
 
 ## API 
 

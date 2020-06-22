@@ -176,7 +176,7 @@ this.sl.loginWithFacebook({
 ```
 | Property | Default | Description |
 | --- | --- | --- |
-| scopes | `["profile", "email"] |` | **NOTE:** Additional scopes haven't been tested |
+| scopes | `["profile", "email"]` | **NOTE:** Additional scopes haven't been tested |
 
 
 ## License

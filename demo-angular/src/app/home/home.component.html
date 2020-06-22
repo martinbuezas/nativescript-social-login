@@ -1,0 +1,32 @@
+<ActionBar>
+  <Label text="Social Login Demo"></Label>
+</ActionBar>
+
+<StackLayout>
+  <StackLayout *ngIf="!user">
+    <Button text="Login with Google" (tap)="loginWithGoogle()"></Button>
+    <Button text="Login with Facebook" (tap)="loginWithFacebook()"></Button>
+  </StackLayout>
+  <StackLayout *ngIf="user">
+    <Button text="Logout" (tap)="logout()"></Button>
+    <StackLayout style="padding: 20">
+      <Label class="h1" text="USER INFO"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'ID: ' + user.id"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Email: ' + user.email"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'First Name: ' + user.firstName"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Last Name: ' + user.lastName"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Display Name: ' + user.displayName"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Profile Picture: ' + user.photo"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Auth Token: ' + user.authToken"></Label>
+      <StackLayout class="hr"></StackLayout>
+      <Label class="p" [text]="'Auth Code: ' + user.authCode"></Label>
+    </StackLayout>
+  </StackLayout>
+</StackLayout>

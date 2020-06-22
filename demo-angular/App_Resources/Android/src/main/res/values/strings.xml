@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Social Login Demo</string>
+  <string name="title_activity_kimera">Social Login Demo</string>
+  <string name="facebook_app_id">{{ YOUR_FACEBOOK_APP_ID }}</string>
+  <string name="fb_login_protocol_scheme">fb{{ YOUR_FACEBOOK_APP_ID }}</string>
+</resources>
